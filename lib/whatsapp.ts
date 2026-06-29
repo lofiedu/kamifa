@@ -3,10 +3,9 @@
 // La acción principal del sitio es escribir por WhatsApp para cotizar.
 // ============================================================================
 
-// TODO(cliente): reemplazar con el número real de Kamifa.
-// Formato internacional, sin "+" ni espacios. Nicaragua = código país 505.
-// Ej: 50588887777
-export const WHATSAPP_NUMBER = "50500000000";
+// Número de Kamifa en formato internacional, sin "+" ni espacios.
+// Nicaragua = código país 505 + 84832698.
+export const WHATSAPP_NUMBER = "50584832698";
 
 const DEFAULT_MSG =
   "Hola Kamifa, vi su sitio web y me gustaría cotizar. Estoy interesado/a en: ";
