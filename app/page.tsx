@@ -1,65 +1,164 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { CategoryCard } from "@/components/CategoryCard";
+import { ProductCard } from "@/components/ProductCard";
+import { TrustStrip } from "@/components/TrustStrip";
+import { CTABand } from "@/components/CTABand";
+import { ImageFrame } from "@/components/ImageFrame";
+import {
+  ArrowRightIcon,
+  ScissorsIcon,
+  NeedleIcon,
+  ShirtIcon,
+  TshirtFoldIcon,
+} from "@/components/icons";
+
+export const metadata: Metadata = {
+  title: "Kamifa | Uniformes y confección a la medida en Nicaragua",
+  description:
+    "Uniformes ejecutivos, bordado corporativo y prendas personalizadas a la medida, desde una sola pieza. Atención directa de la gerencia y entrega en tiempo y forma.",
+};
+
+const PRODUCTS = [
+  {
+    title: "Chaquetas a la medida",
+    text: "En distintas telas, confeccionadas y personalizadas.",
+    imageLabel: "Chaqueta ejecutiva",
+    icon: <ShirtIcon className="h-8 w-8" />,
+  },
+  {
+    title: "Bordados",
+    text: "En todo tipo de prenda, desde una pieza.",
+    imageLabel: "Bordado corporativo",
+    icon: <NeedleIcon className="h-8 w-8" />,
+  },
+  {
+    title: "Camisetas personalizadas",
+    text: "Varias técnicas y acabados de calidad.",
+    imageLabel: "Camiseta personalizada",
+    icon: <TshirtFoldIcon className="h-8 w-8" />,
+  },
+  {
+    title: "Camisas y pantalones",
+    text: "A la medida, con acabado industrial.",
+    imageLabel: "Camisa a la medida",
+    icon: <ScissorsIcon className="h-8 w-8" />,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      {/* ===================== HERO ===================== */}
+      <section className="bg-white">
+        <Container className="grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
+          <Reveal>
+            <p className="eyebrow">Confección a la medida · Desde 1998</p>
+            <h1 className="mt-4 text-hero font-bold text-ink">
+              A la medida de tu empresa.{" "}
+              <span className="text-brand">Desde una sola pieza.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lead text-text">
+              En Kamifa confeccionamos uniformes ejecutivos, bordados y prendas
+              personalizadas con atención directa de la gerencia, medidas
+              tomadas en tu lugar de trabajo y entrega en tiempo y forma.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <WhatsAppButton size="lg" />
+              <Link href="/empresas" className="btn-ghost">
+                Ver soluciones para empresas
+                <ArrowRightIcon className="h-[18px] w-[18px]" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120} className="lg:justify-self-end">
+            <ImageFrame
+              priority
+              aspect="4 / 4.6"
+              variant="dark"
+              label="Confección Kamifa"
+              icon={<ShirtIcon className="h-10 w-10" />}
+              className="rounded-[22px] shadow-[var(--shadow-card)]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ===================== DOS CAMINOS ===================== */}
+      <Section tone="paper">
+        <Reveal className="mb-10 max-w-2xl">
+          <p className="eyebrow">Dos caminos</p>
+          <h2 className="mt-3 text-h2 font-semibold text-ink">
+            Elige cómo trabajamos contigo
+          </h2>
+        </Reveal>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Reveal>
+            <CategoryCard
+              eyebrow="Para empresas e instituciones"
+              title="Uniformes ejecutivos y bordado corporativo"
+              text="Vestimos a tu equipo con prendas a la medida y bordado de tu marca. Visitamos tu empresa, tomamos medidas y cumplimos la entrega acordada."
+              linkLabel="Ver soluciones empresariales"
+              href="/empresas"
+              imageLabel="Uniformes ejecutivos"
+              icon={<ShirtIcon className="h-9 w-9" />}
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <CategoryCard
+              eyebrow="Sin pedido mínimo"
+              title="Tu prenda personalizada, desde una sola pieza"
+              text="¿Una chaqueta, un bordado o una camiseta? No necesitas comprar en volumen. Hacemos tu prenda a la medida, una por una, con acabados de calidad."
+              linkLabel="Ver personalización"
+              href="/personalizado"
+              imageLabel="Personalización"
+              icon={<NeedleIcon className="h-9 w-9" />}
+            />
+          </Reveal>
         </div>
-      </main>
-    </div>
+      </Section>
+
+      {/* ===================== FRANJA DE CONFIANZA ===================== */}
+      <Section tone="white">
+        <Reveal>
+          <TrustStrip />
+        </Reveal>
+      </Section>
+
+      {/* ===================== PRODUCTOS ===================== */}
+      <Section tone="paper">
+        <Reveal className="mb-10 max-w-2xl">
+          <p className="eyebrow">Lo que confeccionamos</p>
+          <h2 className="mt-3 text-h2 font-semibold text-ink">
+            Prendas y bordados con acabado de calidad
+          </h2>
+        </Reveal>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {PRODUCTS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 80}>
+              <ProductCard {...p} />
+            </Reveal>
+          ))}
+        </div>
+        {/* Rango de precio honesto (§6.1) */}
+        <Reveal>
+          <p className="mt-8 text-sm text-muted">
+            Precios desde C$250 hasta C$2,500 por pieza, según prenda, tela y
+            técnica.
+          </p>
+        </Reveal>
+      </Section>
+
+      {/* ===================== CTA FINAL ===================== */}
+      <CTABand
+        title="¿Listo para vestir a tu equipo o crear tu prenda?"
+        text="Escríbenos por WhatsApp y te atiende la gerencia directamente."
+      />
+    </>
   );
 }

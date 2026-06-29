@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Kamifa — Sistema de diseño (tokens de CLAUDE.md §5)
+   Esquema casi monocromático: celeste #28A9C6 + neutros + mucho blanco.
+   No introducir colores fuera de esta paleta.
+   ========================================================================== */
+
+@theme {
+  /* --- Color: marca (celeste y derivados) --- */
+  --color-brand: #28a9c6; /* primario: CTAs, acentos, enlaces */
+  --color-brand-600: #1e7f94; /* hover / estados activos */
+  --color-brand-700: #165d6d; /* énfasis sobre fondos claros */
+  --color-brand-ink: #0c333b; /* titulares opcionales en teal profundo */
+  --color-brand-300: #73c7da; /* acento suave */
+  --color-brand-200: #9ed8e5; /* detalles, líneas, iconos */
+  --color-brand-100: #c9eaf1; /* badges, chips */
+  --color-brand-50: #e5f5f8; /* fondos de sección suaves */
+  --color-brand-25: #f4fbfc; /* wash casi blanco */
+
+  /* --- Color: neutros --- */
+  --color-white: #ffffff;
+  --color-paper: #f8fafb; /* fondo alterno muy claro */
+  --color-hairline: #e3e9ec; /* bordes / divisores 1px */
+  --color-ink: #15272d; /* titulares (charcoal con matiz teal) */
+  --color-text: #43565c; /* cuerpo de texto */
+  --color-muted: #7b8a90; /* texto secundario, captions */
+
+  /* --- Tipografía --- */
+  --font-display: var(--font-poppins), system-ui, sans-serif;
+  --font-body: var(--font-jakarta), system-ui, sans-serif;
+
+  /* Escala fluida (clamp). Base 16px. */
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+  --text-hero--line-height: 1.08;
+  --text-h2: clamp(1.9rem, 2.5vw + 1rem, 2.75rem);
+  --text-h2--line-height: 1.12;
+  --text-h3: clamp(1.35rem, 1vw + 1rem, 1.6rem);
+  --text-h3--line-height: 1.2;
+  --text-lead: clamp(1.05rem, 0.5vw + 1rem, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-eyebrow: 0.8125rem;
+
+  /* --- Radios --- */
+  --radius-sm: 8px;
+  --radius-card: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* --- Sombras suaves y difusas (nunca duras) --- */
+  --shadow-soft: 0 1px 2px rgba(21, 39, 45, 0.04), 0 8px 24px rgba(21, 39, 45, 0.06);
+  --shadow-card: 0 1px 3px rgba(21, 39, 45, 0.05), 0 12px 32px rgba(21, 39, 45, 0.07);
+
+  /* --- Layout --- */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Contenedor centrado (max-width 1200px) */
+@utility container-kamifa {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-white);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Foco visible accesible (anillo de marca) */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   Componentes (CLAUDE.md §5.4)
+   ========================================================================== */
+@layer components {
+  /* Eyebrow: etiquetas en mayúsculas */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-brand-700);
+  }
+
+  /* Botón primario / WhatsApp */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-brand);
+    color: var(--color-white);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-primary:hover {
+    background: var(--color-brand-600);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* Botón secundario / ghost */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--color-brand-700);
+    border: 1.5px solid var(--color-brand);
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+  }
+  .btn-ghost:hover {
+    background: var(--color-brand-50);
+  }
+  .btn-ghost:active {
+    transform: translateY(1px);
+  }
+
+  /* Enlace tipo "Ver más →" */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--color-brand-700);
+    transition: gap 0.18s ease, color 0.18s ease;
+  }
+  .link-arrow:hover {
+    color: var(--color-brand-600);
+    gap: 0.65rem;
+  }
+
+  /* Divisor "línea de puntada" — guiño al oficio textil (usar con moderación) */
+  .stitch-divider {
+    border: 0;
+    border-top: 1px dashed var(--color-brand-200);
+  }
+}
+
+/* ==========================================================================
+   Motion: reveal al scroll, respeta prefers-reduced-motion (§5.6)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
