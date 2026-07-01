@@ -34,15 +34,13 @@ export function Header() {
       <div className="container-kamifa flex h-16 items-center justify-between gap-4 lg:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center" aria-label="Kamifa — inicio">
-          {/* TODO(cliente): sustituir por el logo real en /public/assets/logo-kamifa.svg */}
           <Image
-            src="/assets/logo-kamifa.svg"
+            src="/assets/logo-kamifa.webp"
             alt="Kamifa"
-            width={132}
-            height={40}
+            width={560}
+            height={220}
             priority
-            unoptimized
-            className="h-9 w-auto lg:h-10"
+            className="h-10 w-auto lg:h-11"
           />
         </Link>
 

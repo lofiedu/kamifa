@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import { InstagramIcon, MailIcon } from "@/components/icons";
 
@@ -11,10 +12,14 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           {/* Marca */}
           <div>
-            <p className="font-display text-2xl font-semibold text-ink">
-              Kamifa
-            </p>
-            <p className="mt-3 max-w-sm text-text">
+            <Image
+              src="/assets/logo-kamifa.webp"
+              alt="Kamifa"
+              width={560}
+              height={220}
+              className="h-11 w-auto"
+            />
+            <p className="mt-4 max-w-sm text-text">
               Confección a la medida desde {SITE.foundedYear}. Uniformes,
               bordado corporativo y prendas personalizadas, desde una sola pieza.
             </p>
