@@ -14,12 +14,12 @@ const EQUIPO = [
   {
     nombre: "Gladys Fonseca",
     cargo: "Fundadora",
-    src: "/assets/img/gladys.png",
+    src: "/assets/img/gladys.webp",
   },
   {
     nombre: "Karen Sánchez",
     cargo: "Gerente general",
-    src: "/assets/img/karen.png",
+    src: "/assets/img/karen.webp",
   },
 ];
 

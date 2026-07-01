@@ -29,7 +29,7 @@ const PRODUCTS = [
     title: "Chaquetas a la medida",
     text: "En distintas telas, confeccionadas y personalizadas.",
     imageLabel: "Chaqueta ejecutiva",
-    src: "/assets/img/chaquetas.png",
+    src: "/assets/img/chaquetas.webp",
     alt: "Chaqueta confeccionada a la medida por Kamifa",
     icon: <ShirtIcon className="h-8 w-8" />,
     message:
@@ -39,7 +39,7 @@ const PRODUCTS = [
     title: "Bordados",
     text: "En todo tipo de prenda, desde una pieza.",
     imageLabel: "Bordado corporativo",
-    src: "/assets/img/bordados.png",
+    src: "/assets/img/bordados.webp",
     alt: "Prenda con bordado corporativo de Kamifa",
     fit: "contain" as const,
     fitClassName: "bg-brand-50",
@@ -50,7 +50,7 @@ const PRODUCTS = [
     title: "Camisetas personalizadas",
     text: "Varias técnicas y acabados de calidad.",
     imageLabel: "Camiseta personalizada",
-    src: "/assets/img/camisetas-personalizadas.png",
+    src: "/assets/img/camisetas-personalizadas.webp",
     alt: "Camiseta personalizada confeccionada por Kamifa",
     icon: <TshirtFoldIcon className="h-8 w-8" />,
     message:
@@ -60,7 +60,7 @@ const PRODUCTS = [
     title: "Uniformes",
     text: "Ejecutivos y de trabajo, a la medida y con tu bordado.",
     imageLabel: "Uniformes",
-    src: "/assets/img/uniformes.png",
+    src: "/assets/img/uniformes.webp",
     alt: "Uniforme corporativo confeccionado por Kamifa",
     icon: <ScissorsIcon className="h-8 w-8" />,
     message: "Hola Kamifa, vi su sitio web y me gustaría cotizar uniformes. ",
@@ -99,7 +99,7 @@ export default function Home() {
               aspect="4 / 4.6"
               variant="dark"
               label="Confección Kamifa"
-              src="/assets/img/home.png"
+              src="/assets/img/home.webp"
               alt="Polo corporativo confeccionado a la medida por Kamifa"
               icon={<ShirtIcon className="h-10 w-10" />}
               className="rounded-[22px] shadow-[var(--shadow-card)]"
@@ -134,7 +134,7 @@ export default function Home() {
               linkLabel="Ver soluciones empresariales"
               href="/empresas"
               imageLabel="Uniformes ejecutivos"
-              src="/assets/img/empresariales.png"
+              src="/assets/img/empresariales.webp"
               alt="Uniforme corporativo bordado confeccionado por Kamifa"
               icon={<ShirtIcon className="h-9 w-9" />}
             />
@@ -147,7 +147,7 @@ export default function Home() {
               linkLabel="Ver personalización"
               href="/personalizado"
               imageLabel="Personalización"
-              src="/assets/img/prenda-personalizada.png"
+              src="/assets/img/prenda-personalizada.webp"
               alt="Camiseta personalizada confeccionada por Kamifa"
               icon={<NeedleIcon className="h-9 w-9" />}
             />

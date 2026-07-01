@@ -53,7 +53,7 @@ export default function PersonalizadoPage() {
               aspect="4 / 4.6"
               variant="dark"
               label="Prenda personalizada"
-              src="/assets/img/una-pieza.png"
+              src="/assets/img/una-pieza.webp"
               alt="Prendas confeccionadas a la medida por Kamifa"
               icon={<NeedleIcon className="h-10 w-10" />}
               className="rounded-[22px] shadow-[var(--shadow-card)]"
