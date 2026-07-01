@@ -50,9 +50,11 @@ export default function PersonalizadoPage() {
           </Reveal>
           <Reveal delay={120}>
             <ImageFrame
-              aspect="4 / 3.4"
+              aspect="4 / 4.6"
               variant="dark"
               label="Prenda personalizada"
+              src="/assets/img/una-pieza.png"
+              alt="Prendas confeccionadas a la medida por Kamifa"
               icon={<NeedleIcon className="h-10 w-10" />}
               className="rounded-[22px] shadow-[var(--shadow-card)]"
             />

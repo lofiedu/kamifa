@@ -145,6 +145,14 @@
     transform: translateY(1px);
   }
 
+  /* Variante verde oficial de WhatsApp (p. ej. CTA del header) */
+  .btn-whatsapp {
+    background: #25d366;
+  }
+  .btn-whatsapp:hover {
+    background: #1da851;
+  }
+
   /* Botón secundario / ghost */
   .btn-ghost {
     display: inline-flex;
@@ -189,6 +197,27 @@
     border: 0;
     border-top: 1px dashed var(--color-brand-200);
   }
+}
+
+/* ==========================================================================
+   Marquee de logos (franja de clientes que se desplaza sola)
+   ========================================================================== */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* -50% porque el contenido está duplicado: loop sin costura */
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
 }
 
 /* ==========================================================================

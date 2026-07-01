@@ -71,6 +71,8 @@ export default function EmpresasPage() {
             aspect="16 / 7"
             variant="dark"
             label="Equipo uniformado a la medida"
+            src="/assets/img/empresas.jpg"
+            alt="Uniformes corporativos a la medida confeccionados por Kamifa"
             icon={<ShirtIcon className="h-10 w-10" />}
             className="rounded-[22px] shadow-[var(--shadow-card)]"
           />

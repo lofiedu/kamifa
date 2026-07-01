@@ -75,6 +75,7 @@ export function Header() {
           {/* CTA WhatsApp — siempre visible, también en móvil */}
           <WhatsAppButton
             label="Cotizar por WhatsApp"
+            variant="whatsapp"
             className="!px-4 !py-2.5 text-sm sm:!px-5"
           />
 

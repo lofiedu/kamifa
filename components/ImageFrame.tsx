@@ -18,6 +18,8 @@ export function ImageFrame({
   src,
   alt,
   priority = false,
+  fit = "cover",
+  fitClassName = "",
   className = "",
 }: {
   label?: string;
@@ -27,20 +29,44 @@ export function ImageFrame({
   src?: string;
   alt?: string;
   priority?: boolean;
+  /** Ajuste de la imagen dentro del marco. "contain" evita recortes. */
+  fit?: "cover" | "contain";
+  /** Clases extra para el contenedor cuando se usa "contain" (p. ej. fondo). */
+  fitClassName?: string;
   className?: string;
 }) {
   const dark = variant === "dark";
 
   if (src) {
+    // "cover": la imagen llena el marco (puede recortar).
+    if (fit !== "contain") {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={alt ?? ""}
+          loading={priority ? "eager" : "lazy"}
+          className={`block h-full w-full object-cover ${className}`}
+          style={{ aspectRatio: aspect }}
+        />
+      );
+    }
+
+    // "contain": el marco mantiene la proporción fija y la imagen entra
+    // completa, sin recortes (con fondo opcional vía fitClassName).
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        alt={alt ?? ""}
-        loading={priority ? "eager" : "lazy"}
-        className={`block h-full w-full object-cover ${className}`}
+      <div
+        className={`flex items-center justify-center overflow-hidden ${fitClassName} ${className}`}
         style={{ aspectRatio: aspect }}
-      />
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt ?? ""}
+          loading={priority ? "eager" : "lazy"}
+          className="block h-full w-full scale-[1.15] object-contain"
+        />
+      </div>
     );
   }
 

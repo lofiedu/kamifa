@@ -7,6 +7,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ProductCard } from "@/components/ProductCard";
 import { TrustStrip } from "@/components/TrustStrip";
+import { LogoStrip } from "@/components/LogoStrip";
 import { CTABand } from "@/components/CTABand";
 import { ImageFrame } from "@/components/ImageFrame";
 import {
@@ -28,25 +29,41 @@ const PRODUCTS = [
     title: "Chaquetas a la medida",
     text: "En distintas telas, confeccionadas y personalizadas.",
     imageLabel: "Chaqueta ejecutiva",
+    src: "/assets/img/chaquetas.png",
+    alt: "Chaqueta confeccionada a la medida por Kamifa",
     icon: <ShirtIcon className="h-8 w-8" />,
+    message:
+      "Hola Kamifa, vi su sitio web y me gustaría cotizar chaquetas a la medida. ",
   },
   {
     title: "Bordados",
     text: "En todo tipo de prenda, desde una pieza.",
     imageLabel: "Bordado corporativo",
+    src: "/assets/img/bordados.png",
+    alt: "Prenda con bordado corporativo de Kamifa",
+    fit: "contain" as const,
+    fitClassName: "bg-brand-50",
     icon: <NeedleIcon className="h-8 w-8" />,
+    message: "Hola Kamifa, vi su sitio web y me gustaría cotizar un bordado. ",
   },
   {
     title: "Camisetas personalizadas",
     text: "Varias técnicas y acabados de calidad.",
     imageLabel: "Camiseta personalizada",
+    src: "/assets/img/camisetas-personalizadas.png",
+    alt: "Camiseta personalizada confeccionada por Kamifa",
     icon: <TshirtFoldIcon className="h-8 w-8" />,
+    message:
+      "Hola Kamifa, vi su sitio web y me gustaría cotizar camisetas personalizadas. ",
   },
   {
-    title: "Camisas y pantalones",
-    text: "A la medida, con acabado industrial.",
-    imageLabel: "Camisa a la medida",
+    title: "Uniformes",
+    text: "Ejecutivos y de trabajo, a la medida y con tu bordado.",
+    imageLabel: "Uniformes",
+    src: "/assets/img/uniformes.png",
+    alt: "Uniforme corporativo confeccionado por Kamifa",
     icon: <ScissorsIcon className="h-8 w-8" />,
+    message: "Hola Kamifa, vi su sitio web y me gustaría cotizar uniformes. ",
   },
 ];
 
@@ -68,7 +85,7 @@ export default function Home() {
               tomadas en tu lugar de trabajo y entrega en tiempo y forma.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <WhatsAppButton size="lg" />
+              <WhatsAppButton label="Cotizar ahora" />
               <Link href="/empresas" className="btn-ghost">
                 Ver soluciones para empresas
                 <ArrowRightIcon className="h-[18px] w-[18px]" />
@@ -82,9 +99,20 @@ export default function Home() {
               aspect="4 / 4.6"
               variant="dark"
               label="Confección Kamifa"
+              src="/assets/img/home.png"
+              alt="Polo corporativo confeccionado a la medida por Kamifa"
               icon={<ShirtIcon className="h-10 w-10" />}
               className="rounded-[22px] shadow-[var(--shadow-card)]"
             />
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* ===================== FRANJA DE CLIENTES ===================== */}
+      <section className="bg-white">
+        <Container className="py-10 lg:py-12">
+          <Reveal>
+            <LogoStrip />
           </Reveal>
         </Container>
       </section>
@@ -106,6 +134,8 @@ export default function Home() {
               linkLabel="Ver soluciones empresariales"
               href="/empresas"
               imageLabel="Uniformes ejecutivos"
+              src="/assets/img/empresariales.png"
+              alt="Uniforme corporativo bordado confeccionado por Kamifa"
               icon={<ShirtIcon className="h-9 w-9" />}
             />
           </Reveal>
@@ -117,6 +147,8 @@ export default function Home() {
               linkLabel="Ver personalización"
               href="/personalizado"
               imageLabel="Personalización"
+              src="/assets/img/prenda-personalizada.png"
+              alt="Camiseta personalizada confeccionada por Kamifa"
               icon={<NeedleIcon className="h-9 w-9" />}
             />
           </Reveal>

@@ -16,6 +16,8 @@ export function CategoryCard({
   href,
   imageLabel,
   icon,
+  src,
+  alt,
 }: {
   eyebrow: string;
   title: string;
@@ -24,6 +26,8 @@ export function CategoryCard({
   href: string;
   imageLabel: string;
   icon?: ReactNode;
+  src?: string;
+  alt?: string;
 }) {
   return (
     <Link
@@ -34,9 +38,11 @@ export function CategoryCard({
       <div className="overflow-hidden">
         <ImageFrame
           variant="dark"
-          aspect="4 / 3.2"
+          aspect="4 / 4.6"
           label={imageLabel}
           icon={icon}
+          src={src}
+          alt={alt ?? imageLabel}
           className="transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
       </div>

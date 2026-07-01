@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { NAV_LINKS, SITE } from "@/lib/site";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { InstagramIcon, MailIcon } from "@/components/icons";
 
 export function Footer() {
@@ -10,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-hairline bg-paper">
       <div className="container-kamifa py-14 lg:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-          {/* Marca + CTA */}
+          {/* Marca */}
           <div>
             <p className="font-display text-2xl font-semibold text-ink">
               Kamifa
@@ -19,9 +18,6 @@ export function Footer() {
               Confección a la medida desde {SITE.foundedYear}. Uniformes,
               bordado corporativo y prendas personalizadas, desde una sola pieza.
             </p>
-            <div className="mt-6">
-              <WhatsAppButton />
-            </div>
           </div>
 
           {/* Navegación */}
@@ -75,7 +71,20 @@ export function Footer() {
           <p>
             © {year} Kamifa. Confección a la medida en Nicaragua.
           </p>
-          <p>Desde {SITE.foundedYear}</p>
+          <div className="flex items-center gap-4">
+            <p>
+              Powered by{" "}
+              <a
+                href="https://www.volcanolabs.agency/"
+                target="_blank"
+                rel="noopener"
+                className="transition-colors hover:text-brand-700"
+              >
+                Volcano Labs
+              </a>
+            </p>
+            <p>Desde {SITE.foundedYear}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { ImageFrame } from "@/components/ImageFrame";
 import { CTABand } from "@/components/CTABand";
 
 export const metadata: Metadata = {
@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "Kamifa nació en 1998 de la mano de Gladys Fonseca. Hoy confeccionamos uniformes ejecutivos y prendas personalizadas con honestidad, puntualidad y respeto.",
 };
+
+const EQUIPO = [
+  {
+    nombre: "Gladys Fonseca",
+    cargo: "Fundadora",
+    src: "/assets/img/gladys.png",
+  },
+  {
+    nombre: "Karen Sánchez",
+    cargo: "Gerente general",
+    src: "/assets/img/karen.png",
+  },
+];
 
 const VALORES = [
   {
@@ -28,11 +41,46 @@ const VALORES = [
 export default function NosotrosPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Nuestra historia"
-        title="Confección con pasión desde 1998"
-        intro="Kamifa nació en 1998 de la mano de su propietaria, Gladys Fonseca, con el objetivo de llevar productos a los hogares nicaragüenses: cojines, sets de baño, ropa de cama y más. Con el tiempo evolucionamos hacia la confección de uniformes ejecutivos y prendas personalizadas para empresas y personas."
-      />
+      {/* Historia + retrato de la fundadora */}
+      <Section tone="white">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <p className="eyebrow">Nuestra historia</p>
+            <h1 className="mt-4 text-hero font-bold text-ink">
+              Confección con pasión desde 1998
+            </h1>
+            <p className="mt-6 text-lead text-text">
+              Kamifa nació en 1998 de la mano de su propietaria, Gladys Fonseca,
+              con el objetivo de llevar productos a los hogares nicaragüenses:
+              cojines, sets de baño, ropa de cama y más. Con el tiempo
+              evolucionamos hacia la confección de uniformes ejecutivos y
+              prendas personalizadas para empresas y personas.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="grid grid-cols-2 gap-4 sm:gap-5">
+              {EQUIPO.map((p) => (
+                <figure key={p.nombre}>
+                  <ImageFrame
+                    priority
+                    aspect="4 / 5"
+                    label={p.nombre}
+                    src={p.src}
+                    alt={`${p.nombre}, ${p.cargo} de Kamifa`}
+                    className="rounded-[18px] shadow-[var(--shadow-card)]"
+                  />
+                  <figcaption className="mt-3 text-sm text-muted">
+                    <span className="block font-semibold text-ink">
+                      {p.nombre}
+                    </span>
+                    {p.cargo}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </Section>
 
       {/* Misión + Filosofía */}
       <Section tone="paper">
@@ -57,9 +105,9 @@ export default function NosotrosPage() {
 
       {/* Valores */}
       <Section tone="white">
-        <Reveal className="mb-10 max-w-2xl">
+        <Reveal className="mb-10">
           <p className="eyebrow">Nuestros valores</p>
-          <h2 className="mt-3 text-h2 font-semibold text-ink">
+          <h2 className="mt-3 text-h2 font-semibold text-ink whitespace-nowrap">
             Honestidad · Puntualidad · Respeto
           </h2>
         </Reveal>
