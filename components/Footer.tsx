@@ -76,20 +76,17 @@ export function Footer() {
           <p>
             © {year} Kamifa. Confección a la medida en Nicaragua.
           </p>
-          <div className="flex items-center gap-4">
-            <p>
-              Powered by{" "}
-              <a
-                href="https://www.volcanolabs.agency/"
-                target="_blank"
-                rel="noopener"
-                className="transition-colors hover:text-brand-700"
-              >
-                Volcano Labs
-              </a>
-            </p>
-            <p>Desde {SITE.foundedYear}</p>
-          </div>
+          <p>
+            Powered by{" "}
+            <a
+              href="https://www.volcanolabs.agency/"
+              target="_blank"
+              rel="noopener"
+              className="transition-colors hover:text-brand-700"
+            >
+              Volcano Labs
+            </a>
+          </p>
         </div>
       </div>
     </footer>
